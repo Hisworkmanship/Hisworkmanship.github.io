@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lindell & Associates | Remote IT Consulting — Yakima, WA</title>
+  <title>Lindell &amp; Associates | Remote IT Consulting — Yakima, WA</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ─── Reset & Base ─────────────────────────────── */
+    /* ─── Reset &amp; Base ─────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -131,6 +131,7 @@
       to   { opacity: 1; }
     }
 
+    /* Animated grid lines */
     .hero-grid {
       position: absolute;
       inset: 0;
@@ -242,6 +243,7 @@
       background: rgba(0,212,255,0.05);
     }
 
+    /* Hero stats */
     .hero-stats {
       position: absolute;
       bottom: 60px;
@@ -393,8 +395,6 @@
     }
 
     /* ─── About ─────────────────────────────────────── */
-    #about-section { padding: 100px 5%; }
-
     #about {
       max-width: 1200px;
       margin: 0 auto;
@@ -402,6 +402,12 @@
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: center;
+    }
+
+    #about-section { padding: 100px 5%; }
+
+    .about-visual {
+      position: relative;
     }
 
     .about-card {
@@ -544,9 +550,8 @@
       flex-shrink: 0;
     }
 
-    /* ─── CTA Section ───────────────────────────────── */
+    /* ─── Contact Section ───────────────────────────── */
     #contact {
-      text-align: center;
       position: relative;
       overflow: hidden;
     }
@@ -561,27 +566,130 @@
     .contact-inner {
       position: relative;
       z-index: 2;
-      max-width: 640px;
+      max-width: 700px;
       margin: 0 auto;
     }
 
+    .contact-header { text-align: center; margin-bottom: 3rem; }
+
     #contact .section-title { font-size: clamp(2.2rem, 5vw, 3.5rem); }
-    #contact .section-sub { margin: 0 auto 2.5rem; }
+    #contact .section-sub { margin: 0 auto; }
 
-    .contact-email {
-      display: inline-block;
-      font-size: 0.9rem;
+    /* Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-size: 0.82rem;
+      font-weight: 600;
       color: var(--gray);
-      margin-top: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
     }
 
-    .contact-email a {
-      color: var(--cyan);
-      text-decoration: none;
-      font-weight: 500;
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 14px 18px;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+      width: 100%;
     }
 
-    .contact-email a:hover { text-decoration: underline; }
+    .form-group select option { background: #0d1528; color: var(--white); }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: rgba(0,212,255,0.5);
+      box-shadow: 0 0 0 3px rgba(0,212,255,0.08);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 130px; }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(160,174,192,0.5); }
+
+    .form-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 40px;
+      background: var(--grad);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 4px 24px rgba(0,212,255,0.25);
+      align-self: flex-start;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,212,255,0.4);
+    }
+
+    .form-note {
+      font-size: 0.8rem;
+      color: var(--gray);
+      text-align: center;
+      margin-top: 0.5rem;
+      opacity: 0.7;
+    }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+      background: rgba(0,212,255,0.05);
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: var(--radius);
+    }
+
+    .form-success .success-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-success h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-success p { color: var(--gray); font-size: 0.95rem; }
+
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .form-submit { width: 100%; justify-content: center; }
+    }
 
     /* ─── Footer ────────────────────────────────────── */
     footer {
@@ -604,7 +712,10 @@
       background-clip: text;
     }
 
-    footer p { font-size: 0.82rem; color: var(--gray); }
+    footer p {
+      font-size: 0.82rem;
+      color: var(--gray);
+    }
 
     .footer-location {
       font-size: 0.82rem;
@@ -621,7 +732,11 @@
       transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1), transform 0.65s cubic-bezier(0.4,0,0.2,1);
     }
 
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
@@ -630,8 +745,17 @@
 
     /* ─── Mobile ────────────────────────────────────── */
     @media (max-width: 900px) {
-      #about { grid-template-columns: 1fr; gap: 3rem; }
-      .hero-stats { position: static; margin-top: 3rem; justify-content: flex-start; }
+      #about {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .hero-stats {
+        position: static;
+        margin-top: 3rem;
+        justify-content: flex-start;
+      }
+
       .nav-links { display: none; }
     }
 
@@ -645,8 +769,10 @@
 </head>
 <body>
 
+  <!-- Progress Bar -->
   <div id="progress-bar"></div>
 
+  <!-- Navigation -->
   <nav id="navbar">
     <a href="#hero" class="nav-logo">Lindell &amp; Associates</a>
     <ul class="nav-links">
@@ -657,18 +783,28 @@
     </ul>
   </nav>
 
+  <!-- Hero -->
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
+
     <div class="hero-content">
       <div class="hero-badge">Remote IT Consulting · Yakima, WA</div>
+
       <h1>Technology That<br>Works <span>For You.</span></h1>
+
       <p>I help individuals and small businesses take the stress out of technology — PC &amp; Mac support, network setup, AI integration, and more. Fast, remote, reliable.</p>
+
       <div class="hero-buttons">
-        <a href="mailto:your-email@yourdomain.com" class="btn-primary">&#9993; Request a Consultation</a>
-        <a href="#services" class="btn-secondary">See What I Do ↓</a>
+        <a href="#contact" class="btn-primary">
+          &#9993; Request a Consultation
+        </a>
+        <a href="#services" class="btn-secondary">
+          See What I Do ↓
+        </a>
       </div>
     </div>
+
     <div class="hero-stats">
       <div class="stat">
         <div class="stat-number">6+</div>
@@ -685,38 +821,45 @@
     </div>
   </section>
 
+  <!-- Services -->
   <section id="services">
     <div class="services-header reveal">
       <span class="section-label">What I Do</span>
       <h2 class="section-title">Expert IT, <span>On Demand</span></h2>
       <p class="section-sub">No waiting for a technician to show up. Get fast, convenient help delivered entirely remotely.</p>
     </div>
+
     <div class="services-grid">
       <div class="service-card reveal reveal-delay-1">
         <div class="service-icon icon-cyan">💻</div>
         <h3>PC &amp; Mac Maintenance</h3>
         <p>Tune-ups, cleanup, and performance optimization to keep your machines running like new.</p>
       </div>
+
       <div class="service-card reveal reveal-delay-2">
         <div class="service-icon icon-purple">🌐</div>
         <h3>Network Support</h3>
         <p>Setup, troubleshooting, and security hardening for home and business networks.</p>
       </div>
+
       <div class="service-card reveal reveal-delay-3">
         <div class="service-icon icon-pink">🤖</div>
         <h3>AI Integration</h3>
         <p>Helping businesses adopt the latest AI tools into their daily workflow to save time and scale operations.</p>
       </div>
+
       <div class="service-card reveal reveal-delay-1">
         <div class="service-icon icon-teal">🎓</div>
         <h3>Software Training</h3>
         <p>One-on-one or group sessions tailored to your team's specific software and workflow.</p>
       </div>
+
       <div class="service-card reveal reveal-delay-2">
         <div class="service-icon icon-blue">🛎️</div>
         <h3>Remote Customer Support</h3>
         <p>On-demand tech help for individuals and teams — when you need it, from wherever you are.</p>
       </div>
+
       <div class="service-card reveal reveal-delay-3">
         <div class="service-icon icon-amber">🔐</div>
         <h3>Cybersecurity Basics</h3>
@@ -725,6 +868,7 @@
     </div>
   </section>
 
+  <!-- About -->
   <section id="about-section">
     <div id="about">
       <div class="about-visual reveal">
@@ -732,7 +876,9 @@
           <div class="about-glow"></div>
           <div class="about-name">Mike Lindell</div>
           <div class="about-title">Remote IT Consultant · Lindell &amp; Associates</div>
-          <p class="about-bio">I help individuals and small businesses take the stress out of technology — all delivered remotely so you get fast, convenient help without waiting for a technician to show up.</p>
+          <p class="about-bio">
+            I help individuals and small businesses take the stress out of technology — all delivered remotely so you get fast, convenient help without waiting for a technician to show up.
+          </p>
           <div class="about-tags">
             <span class="tag">Computer Services</span>
             <span class="tag">Computer Technology</span>
@@ -741,27 +887,31 @@
           </div>
         </div>
       </div>
+
       <div class="about-text reveal reveal-delay-2">
         <span class="section-label">About Me</span>
         <h2 class="section-title">Making Tech Work<br><span>For People, Not Against Them</span></h2>
         <p class="section-sub">Whether you're a homeowner frustrated with a slow computer or a business owner looking to streamline operations with AI tools, I'm in your corner.</p>
+
         <ul class="about-list">
           <li>Fully remote — no waiting, no scheduling hassle</li>
           <li>Serve small businesses &amp; individual consumers</li>
           <li>Specialize in both PC and Mac environments</li>
           <li>Help businesses integrate AI tools into real workflows</li>
-          <li>Trusted by retailers, healthcare offices, real estate agents, and more</li>
+          <li>Trusted partner for retailers, healthcare offices, real estate agents, and more</li>
         </ul>
       </div>
     </div>
   </section>
 
+  <!-- Who I Help -->
   <section id="customers">
     <div class="customers-header reveal">
       <span class="section-label">Ideal Customers</span>
       <h2 class="section-title">Who I <span>Work With</span></h2>
       <p class="section-sub">I commonly work with small businesses and individuals across these industries in the Yakima, WA region and beyond.</p>
     </div>
+
     <div class="customers-grid">
       <div class="customer-chip reveal reveal-delay-1"><span class="dot" style="background:#00d4ff"></span> Real Estate</div>
       <div class="customer-chip reveal reveal-delay-1"><span class="dot" style="background:#7b2ff7"></span> Healthcare</div>
@@ -776,18 +926,74 @@
     </div>
   </section>
 
+  <!-- Contact Form -->
   <section id="contact">
     <div class="contact-inner">
-      <span class="section-label reveal">Get Started</span>
-      <h2 class="section-title reveal reveal-delay-1">Ready to Stop<br><span>Fighting Your Tech?</span></h2>
-      <p class="section-sub reveal reveal-delay-2">Let's get your technology working for you. Reach out today for a free consultation — no tech jargon, no hassle.</p>
-      <a href="mailto:your-email@yourdomain.com" class="btn-primary reveal reveal-delay-3">&#9993; &nbsp;Request a Free Consultation</a>
-      <div class="contact-email reveal reveal-delay-4">
-        Or email directly: <a href="mailto:your-email@yourdomain.com">your-email@yourdomain.com</a>
+
+      <div class="contact-header reveal">
+        <span class="section-label">Get in Touch</span>
+        <h2 class="section-title">Ready to Stop<br><span>Fighting Your Tech?</span></h2>
+        <p class="section-sub">Fill out the form and I'll get back to you within one business day — no tech jargon, no pressure.</p>
       </div>
+
+      <!-- Replace YOUR_FORM_ID below with your Formspree form ID after signing up at formspree.io -->
+      <form
+        class="contact-form reveal reveal-delay-1"
+        id="contactForm"
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+      >
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="(509) 555-0100" />
+          </div>
+          <div class="form-group">
+            <label for="service">Service Needed</label>
+            <select id="service" name="service">
+              <option value="" disabled selected>Select a service…</option>
+              <option>PC &amp; Mac Maintenance</option>
+              <option>Network Support</option>
+              <option>AI Integration</option>
+              <option>Software Training</option>
+              <option>Remote Customer Support</option>
+              <option>Cybersecurity Basics</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Tell me what's going on</label>
+          <textarea id="message" name="message" placeholder="Briefly describe your issue or what you need help with…" required></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">&#9993; &nbsp;Send Message</button>
+        <p class="form-note">Your information is never shared or sold.</p>
+      </form>
+
+      <!-- Shown after successful submission -->
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">✅</div>
+        <h3>Message Sent!</h3>
+        <p>Thanks for reaching out. I'll be in touch within one business day.</p>
+      </div>
+
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <span class="footer-logo">Lindell &amp; Associates</span>
     <p>© 2026 Lindell and Associates. All rights reserved.</p>
@@ -795,6 +1001,7 @@
   </footer>
 
   <script>
+    // ─── Scroll Progress Bar ───────────────────────────
     const bar = document.getElementById('progress-bar');
     window.addEventListener('scroll', () => {
       const scrolled = window.scrollY;
@@ -802,11 +1009,13 @@
       bar.style.width = (scrolled / total * 100) + '%';
     }, { passive: true });
 
+    // ─── Sticky Nav ────────────────────────────────────
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
 
+    // ─── Scroll Reveal ─────────────────────────────────
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -816,16 +1025,47 @@
         }
       });
     }, { threshold: 0.12 });
+
     reveals.forEach(el => observer.observe(el));
 
+    // ─── Smooth anchor offset for fixed nav ───────────
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', e => {
         const target = document.querySelector(anchor.getAttribute('href'));
         if (!target) return;
         e.preventDefault();
-        window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+        const offset = 80;
+        window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
       });
     });
+
+    // ─── Contact Form (Formspree) ──────────────────────
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = contactForm.querySelector('.form-submit');
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          contactForm.style.display = 'none';
+          formSuccess.style.display = 'block';
+        } else {
+          btn.textContent = 'Send Message';
+          btn.disabled = false;
+          alert('Something went wrong — please try again.');
+        }
+      });
+    }
   </script>
 
 </body>
