@@ -1,148 +1,832 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lindell and Associates | Executive IT Consulting</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-main: #1a1a1a;
-            --text-muted: #666666;
-            --accent: #000000;
-            --spacing: 40px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lindell & Associates | Remote IT Consulting — Yakima, WA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+    :root {
+      --navy:    #080d1a;
+      --navy2:   #0d1528;
+      --navy3:   #111d35;
+      --cyan:    #00d4ff;
+      --purple:  #7b2ff7;
+      --pink:    #f72f8e;
+      --white:   #ffffff;
+      --gray:    #a0aec0;
+      --light:   #e2e8f0;
+      --grad:    linear-gradient(135deg, #00d4ff, #7b2ff7);
+      --grad2:   linear-gradient(135deg, #7b2ff7, #f72f8e);
+      --radius:  14px;
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-        /* Minimalist Header */
-        header {
-            padding: 60px 5% 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    html { scroll-behavior: smooth; font-size: 16px; }
 
-        .logo {
-            font-weight: 600;
-            font-size: 1.2rem;
-            letter-spacing: -0.02em;
-            text-transform: uppercase;
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
 
-        /* Hero Section */
-        .hero {
-            padding: 100px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; line-height: 1.15; }
 
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 300;
-            line-height: 1.1;
-            margin-bottom: 30px;
-            letter-spacing: -0.03em;
-        }
+    /* ─── Scroll Progress Bar ───────────────────────── */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: var(--grad);
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
+    /* ─── Navigation ────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 5%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background var(--transition), backdrop-filter var(--transition), box-shadow var(--transition);
+    }
 
-        /* Grid for Services */
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 60px;
-            padding: 80px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-            border-top: 1px solid #eaeaea;
-        }
+    nav.scrolled {
+      background: rgba(8, 13, 26, 0.9);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(0,212,255,0.12);
+    }
 
-        .service-item h3 {
-            font-weight: 600;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
 
-        .service-item p {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
 
-        /* Contact Section */
-        footer {
-            padding: 100px 5%;
-            background: #f9f9f9;
-            text-align: center;
-        }
+    .nav-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
 
-        .cta-button {
-            display: inline-block;
-            padding: 18px 40px;
-            background: var(--accent);
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: opacity 0.2s;
-        }
+    .nav-links a:hover { color: var(--cyan); }
 
-        .cta-button:hover {
-            opacity: 0.8;
-        }
+    .nav-cta {
+      padding: 10px 24px;
+      background: var(--grad);
+      color: var(--white) !important;
+      border-radius: 50px;
+      font-weight: 600 !important;
+      font-size: 0.85rem !important;
+      transition: opacity var(--transition), transform var(--transition) !important;
+    }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-        }
-    </style>
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ─── Hero ──────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 5% 80px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(123,47,247,0.18) 0%, transparent 65%),
+                  radial-gradient(ellipse 60% 50% at 20% 80%, rgba(0,212,255,0.12) 0%, transparent 60%),
+                  radial-gradient(ellipse 40% 40% at 80% 10%, rgba(247,47,142,0.08) 0%, transparent 50%);
+      animation: bgPulse 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgPulse {
+      from { opacity: 0.8; }
+      to   { opacity: 1; }
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border: 1px solid rgba(0,212,255,0.3);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--cyan);
+      margin-bottom: 2rem;
+      background: rgba(0,212,255,0.05);
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 8px var(--cyan);
+      animation: blink 1.6s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    #hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      line-height: 1.08;
+    }
+
+    #hero h1 span {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    #hero p {
+      font-size: 1.2rem;
+      color: var(--gray);
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 36px;
+      background: var(--grad);
+      color: var(--white);
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 4px 24px rgba(0,212,255,0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,212,255,0.4);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 36px;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white);
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: border-color var(--transition), background var(--transition);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(0,212,255,0.5);
+      background: rgba(0,212,255,0.05);
+    }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 60px;
+      right: 5%;
+      display: flex;
+      gap: 3rem;
+      z-index: 2;
+    }
+
+    .stat { text-align: center; }
+
+    .stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 2px;
+    }
+
+    /* ─── Section Wrapper ───────────────────────────── */
+    section { padding: 100px 5%; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--cyan);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-title span {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--gray);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ─── Services ──────────────────────────────────── */
+    #services {
+      background: var(--navy2);
+      position: relative;
+    }
+
+    #services::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,212,255,0.3), transparent);
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .services-header .section-sub { margin: 0 auto; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      padding: 2.2rem;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--grad);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0,212,255,0.2);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,212,255,0.1);
+    }
+
+    .service-card:hover::before { opacity: 1; }
+
+    .service-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .icon-cyan   { background: rgba(0,212,255,0.12); }
+    .icon-purple { background: rgba(123,47,247,0.15); }
+    .icon-pink   { background: rgba(247,47,142,0.12); }
+    .icon-teal   { background: rgba(0,212,180,0.12); }
+    .icon-blue   { background: rgba(50,130,255,0.12); }
+    .icon-amber  { background: rgba(255,170,0,0.12); }
+
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+      color: var(--white);
+    }
+
+    .service-card p {
+      font-size: 0.92rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
+    /* ─── About ─────────────────────────────────────── */
+    #about-section { padding: 100px 5%; }
+
+    #about {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-card {
+      background: var(--navy2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; right: -40px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(123,47,247,0.2), transparent 70%);
+    }
+
+    .about-glow {
+      position: absolute;
+      top: -60px; left: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,212,255,0.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .about-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .about-title {
+      font-size: 0.9rem;
+      color: var(--cyan);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-bio {
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 1.8rem;
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .tag {
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      border: 1px solid rgba(0,212,255,0.25);
+      color: var(--cyan);
+      background: rgba(0,212,255,0.06);
+    }
+
+    .about-text .section-sub { margin-bottom: 2rem; }
+
+    .about-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--light);
+    }
+
+    .about-list li::before {
+      content: '→';
+      color: var(--cyan);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ─── Who I Help ────────────────────────────────── */
+    #customers {
+      background: var(--navy2);
+      position: relative;
+    }
+
+    #customers::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(123,47,247,0.4), transparent);
+    }
+
+    .customers-header { text-align: center; margin-bottom: 4rem; }
+    .customers-header .section-sub { margin: 0 auto; }
+
+    .customers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .customer-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 1rem 1.3rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--light);
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+    }
+
+    .customer-chip:hover {
+      border-color: rgba(123,47,247,0.4);
+      background: rgba(123,47,247,0.06);
+      transform: translateY(-3px);
+    }
+
+    .customer-chip span.dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ─── CTA Section ───────────────────────────────── */
+    #contact {
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #contact::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(123,47,247,0.12) 0%, transparent 70%);
+    }
+
+    .contact-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    #contact .section-title { font-size: clamp(2.2rem, 5vw, 3.5rem); }
+    #contact .section-sub { margin: 0 auto 2.5rem; }
+
+    .contact-email {
+      display: inline-block;
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin-top: 1.5rem;
+    }
+
+    .contact-email a {
+      color: var(--cyan);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-email a:hover { text-decoration: underline; }
+
+    /* ─── Footer ────────────────────────────────────── */
+    footer {
+      padding: 2rem 5%;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    footer p { font-size: 0.82rem; color: var(--gray); }
+
+    .footer-location {
+      font-size: 0.82rem;
+      color: var(--gray);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ─── Scroll Animations ─────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1), transform 0.65s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ─── Mobile ────────────────────────────────────── */
+    @media (max-width: 900px) {
+      #about { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-stats { position: static; margin-top: 3rem; justify-content: flex-start; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 70px 5%; }
+      .hero-stats { gap: 2rem; }
+      .hero-buttons { flex-direction: column; }
+      .btn-primary, .btn-secondary { justify-content: center; }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">Lindell & Associates</div>
-    </header>
+  <div id="progress-bar"></div>
 
-    <main>
-        <section class="hero">
-            <h1>Expert IT Solutions.<br>Sophisticated Support.</h1>
-            <p>Providing remote IT consulting, specialized network support, and cybersecurity essentials for modern businesses.</p>
-            <a href="mailto:your-email@yourdomain.com" class="cta-button">Request a Consultation</a>
-        </section>
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">Lindell &amp; Associates</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about-section">About</a></li>
+      <li><a href="#customers">Who I Help</a></li>
+      <li><a href="#contact" class="nav-cta">Get Help Now</a></li>
+    </ul>
+  </nav>
 
-        <section class="services">
-            <div class="service-item">
-                <h3>Technical Infrastructure</h3>
-                <p>Maintenance for PC and Mac environments, including seamless network support and troubleshooting.</p>
-            </div>
-            <div class="service-item">
-                <h3>Security & Strategy</h3>
-                <p>Cybersecurity basics and AI integration strategies designed to protect and scale your operations.</p>
-            </div>
-            <div class="service-item">
-                <h3>Remote Support</h3>
-                <p>World-class remote customer support and software training tailored to your specific workflow.</p>
-            </div>
-        </section>
-    </main>
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Remote IT Consulting · Yakima, WA</div>
+      <h1>Technology That<br>Works <span>For You.</span></h1>
+      <p>I help individuals and small businesses take the stress out of technology — PC &amp; Mac support, network setup, AI integration, and more. Fast, remote, reliable.</p>
+      <div class="hero-buttons">
+        <a href="mailto:your-email@yourdomain.com" class="btn-primary">&#9993; Request a Consultation</a>
+        <a href="#services" class="btn-secondary">See What I Do ↓</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-number">6+</div>
+        <div class="stat-label">Services</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Remote</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">PC+Mac</div>
+        <div class="stat-label">Platforms</div>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>© 2026 Lindell and Associates. All rights reserved.</p>
-    </footer>
+  <section id="services">
+    <div class="services-header reveal">
+      <span class="section-label">What I Do</span>
+      <h2 class="section-title">Expert IT, <span>On Demand</span></h2>
+      <p class="section-sub">No waiting for a technician to show up. Get fast, convenient help delivered entirely remotely.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon icon-cyan">💻</div>
+        <h3>PC &amp; Mac Maintenance</h3>
+        <p>Tune-ups, cleanup, and performance optimization to keep your machines running like new.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon icon-purple">🌐</div>
+        <h3>Network Support</h3>
+        <p>Setup, troubleshooting, and security hardening for home and business networks.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon icon-pink">🤖</div>
+        <h3>AI Integration</h3>
+        <p>Helping businesses adopt the latest AI tools into their daily workflow to save time and scale operations.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon icon-teal">🎓</div>
+        <h3>Software Training</h3>
+        <p>One-on-one or group sessions tailored to your team's specific software and workflow.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon icon-blue">🛎️</div>
+        <h3>Remote Customer Support</h3>
+        <p>On-demand tech help for individuals and teams — when you need it, from wherever you are.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon icon-amber">🔐</div>
+        <h3>Cybersecurity Basics</h3>
+        <p>Practical data safety measures for small businesses concerned about protecting their information.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about-section">
+    <div id="about">
+      <div class="about-visual reveal">
+        <div class="about-card">
+          <div class="about-glow"></div>
+          <div class="about-name">Mike Lindell</div>
+          <div class="about-title">Remote IT Consultant · Lindell &amp; Associates</div>
+          <p class="about-bio">I help individuals and small businesses take the stress out of technology — all delivered remotely so you get fast, convenient help without waiting for a technician to show up.</p>
+          <div class="about-tags">
+            <span class="tag">Computer Services</span>
+            <span class="tag">Computer Technology</span>
+            <span class="tag">AI Development</span>
+            <span class="tag">Yakima, WA</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-text reveal reveal-delay-2">
+        <span class="section-label">About Me</span>
+        <h2 class="section-title">Making Tech Work<br><span>For People, Not Against Them</span></h2>
+        <p class="section-sub">Whether you're a homeowner frustrated with a slow computer or a business owner looking to streamline operations with AI tools, I'm in your corner.</p>
+        <ul class="about-list">
+          <li>Fully remote — no waiting, no scheduling hassle</li>
+          <li>Serve small businesses &amp; individual consumers</li>
+          <li>Specialize in both PC and Mac environments</li>
+          <li>Help businesses integrate AI tools into real workflows</li>
+          <li>Trusted by retailers, healthcare offices, real estate agents, and more</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="customers">
+    <div class="customers-header reveal">
+      <span class="section-label">Ideal Customers</span>
+      <h2 class="section-title">Who I <span>Work With</span></h2>
+      <p class="section-sub">I commonly work with small businesses and individuals across these industries in the Yakima, WA region and beyond.</p>
+    </div>
+    <div class="customers-grid">
+      <div class="customer-chip reveal reveal-delay-1"><span class="dot" style="background:#00d4ff"></span> Real Estate</div>
+      <div class="customer-chip reveal reveal-delay-1"><span class="dot" style="background:#7b2ff7"></span> Healthcare</div>
+      <div class="customer-chip reveal reveal-delay-2"><span class="dot" style="background:#f72f8e"></span> Retail</div>
+      <div class="customer-chip reveal reveal-delay-2"><span class="dot" style="background:#00d4b4"></span> Law Offices</div>
+      <div class="customer-chip reveal reveal-delay-3"><span class="dot" style="background:#3282ff"></span> Remote Workers</div>
+      <div class="customer-chip reveal reveal-delay-3"><span class="dot" style="background:#ffaa00"></span> Startups</div>
+      <div class="customer-chip reveal reveal-delay-4"><span class="dot" style="background:#00d4ff"></span> Entrepreneurs</div>
+      <div class="customer-chip reveal reveal-delay-4"><span class="dot" style="background:#7b2ff7"></span> Warehouses</div>
+      <div class="customer-chip reveal reveal-delay-5"><span class="dot" style="background:#f72f8e"></span> Consultants</div>
+      <div class="customer-chip reveal reveal-delay-5"><span class="dot" style="background:#00d4b4"></span> Remote Staffing</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-inner">
+      <span class="section-label reveal">Get Started</span>
+      <h2 class="section-title reveal reveal-delay-1">Ready to Stop<br><span>Fighting Your Tech?</span></h2>
+      <p class="section-sub reveal reveal-delay-2">Let's get your technology working for you. Reach out today for a free consultation — no tech jargon, no hassle.</p>
+      <a href="mailto:your-email@yourdomain.com" class="btn-primary reveal reveal-delay-3">&#9993; &nbsp;Request a Free Consultation</a>
+      <div class="contact-email reveal reveal-delay-4">
+        Or email directly: <a href="mailto:your-email@yourdomain.com">your-email@yourdomain.com</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-logo">Lindell &amp; Associates</span>
+    <p>© 2026 Lindell and Associates. All rights reserved.</p>
+    <span class="footer-location">📍 Yakima, WA</span>
+  </footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (scrolled / total * 100) + '%';
+    }, { passive: true });
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+      });
+    });
+  </script>
 
 </body>
 </html>
