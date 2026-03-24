@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lindell and Associates | Executive IT Consulting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
+            --accent: #000000;
+            --spacing: 40px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Minimalist Header */
+        header {
+            padding: 60px 5% 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: -0.03em;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        /* Grid for Services */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid #eaeaea;
+        }
+
+        .service-item h3 {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .service-item p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Contact Section */
+        footer {
+            padding: 100px 5%;
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .cta-button:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Lindell & Associates</div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Expert IT Solutions.<br>Sophisticated Support.</h1>
+            <p>Providing remote IT consulting, specialized network support, and cybersecurity essentials for modern businesses.</p>
+            <a href="mailto:your-email@yourdomain.com" class="cta-button">Request a Consultation</a>
+        </section>
+
+        <section class="services">
+            <div class="service-item">
+                <h3>Technical Infrastructure</h3>
+                <p>Maintenance for PC and Mac environments, including seamless network support and troubleshooting.</p>
+            </div>
+            <div class="service-item">
+                <h3>Security & Strategy</h3>
+                <p>Cybersecurity basics and AI integration strategies designed to protect and scale your operations.</p>
+            </div>
+            <div class="service-item">
+                <h3>Remote Support</h3>
+                <p>World-class remote customer support and software training tailored to your specific workflow.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Lindell and Associates. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
