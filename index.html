@@ -68,15 +68,15 @@
     }
 
     .nav-logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
       text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
     }
 
     .nav-links {
@@ -370,8 +370,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
       margin-bottom: 1.3rem;
+    }
+
+    .service-icon img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
     }
 
     .icon-cyan   { background: rgba(0,212,255,0.12); }
@@ -435,6 +440,14 @@
       border-radius: 50%;
       background: radial-gradient(circle, rgba(0,212,255,0.12), transparent 70%);
       pointer-events: none;
+    }
+
+    .about-card-logo {
+      width: 200px;
+      height: auto;
+      object-fit: contain;
+      margin-bottom: 1.5rem;
+      opacity: 0.92;
     }
 
     .about-name {
@@ -702,14 +715,10 @@
       gap: 1rem;
     }
 
-    .footer-logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .footer-logo img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
     }
 
     footer p {
@@ -774,7 +783,9 @@
 
   <!-- Navigation -->
   <nav id="navbar">
-    <a href="#hero" class="nav-logo">Lindell & Associates</a>
+    <a href="#hero" class="nav-logo">
+      <img src="IMG_5491.png" alt="Lindell &amp; Associates" />
+    </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#about-section">About</a></li>
@@ -831,37 +842,37 @@
 
     <div class="services-grid">
       <div class="service-card reveal reveal-delay-1">
-        <div class="service-icon icon-cyan">💻</div>
+        <div class="service-icon icon-cyan"><img src="images/icon-pc-mac.png" alt="PC &amp; Mac Maintenance" /></div>
         <h3>PC &amp; Mac Maintenance</h3>
         <p>Tune-ups, cleanup, and performance optimization to keep your machines running like new.</p>
       </div>
 
       <div class="service-card reveal reveal-delay-2">
-        <div class="service-icon icon-purple">🌐</div>
+        <div class="service-icon icon-purple"><img src="images/icon-network.png" alt="Network Support" /></div>
         <h3>Network Support</h3>
         <p>Setup, troubleshooting, and security hardening for home and business networks.</p>
       </div>
 
       <div class="service-card reveal reveal-delay-3">
-        <div class="service-icon icon-pink">🤖</div>
+        <div class="service-icon icon-pink"><img src="images/icon-ai.png" alt="AI Integration" /></div>
         <h3>AI Integration</h3>
         <p>Helping businesses adopt the latest AI tools into their daily workflow to save time and scale operations.</p>
       </div>
 
       <div class="service-card reveal reveal-delay-1">
-        <div class="service-icon icon-teal">🎓</div>
+        <div class="service-icon icon-teal"><img src="images/icon-training.png" alt="Software Training" /></div>
         <h3>Software Training</h3>
         <p>One-on-one or group sessions tailored to your team's specific software and workflow.</p>
       </div>
 
       <div class="service-card reveal reveal-delay-2">
-        <div class="service-icon icon-blue">🛎️</div>
+        <div class="service-icon icon-blue"><img src="images/icon-support.png" alt="Remote Customer Support" /></div>
         <h3>Remote Customer Support</h3>
         <p>On-demand tech help for individuals and teams — when you need it, from wherever you are.</p>
       </div>
 
       <div class="service-card reveal reveal-delay-3">
-        <div class="service-icon icon-amber">🔐</div>
+        <div class="service-icon icon-amber"><img src="images/icon-security.png" alt="Cybersecurity Basics" /></div>
         <h3>Cybersecurity Basics</h3>
         <p>Practical data safety measures for small businesses concerned about protecting their information.</p>
       </div>
@@ -874,6 +885,7 @@
       <div class="about-visual reveal">
         <div class="about-card">
           <div class="about-glow"></div>
+          <img src="IMG_5489.png" alt="Lindell &amp; Associates" class="about-card-logo" />
           <div class="about-name">Mike Lindell</div>
           <div class="about-title">Remote IT Consultant · Lindell &amp; Associates</div>
           <p class="about-bio">
@@ -994,7 +1006,9 @@
 
   <!-- Footer -->
   <footer>
-    <span class="footer-logo">Lindell &amp; Associates</span>
+    <span class="footer-logo">
+      <img src="IMG_5491.png" alt="Lindell &amp; Associates" />
+    </span>
     <p>© 2026 Lindell and Associates. All rights reserved.</p>
     <span class="footer-location">📍 Yakima, WA</span>
   </footer>
