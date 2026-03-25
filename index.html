@@ -340,10 +340,10 @@
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.07);
       border-radius: var(--radius);
-      padding: 2.2rem;
+      padding: 0;
+      overflow: hidden;
       transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
       position: relative;
-      overflow: hidden;
     }
 
     .service-card::before {
@@ -364,27 +364,23 @@
 
     .service-card:hover::before { opacity: 1; }
 
-    .service-icon {
-      width: 52px; height: 52px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.3rem;
+    .service-img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: rgba(0,0,0,0.3);
     }
 
-    .service-icon img {
-      width: 36px;
-      height: 36px;
-      object-fit: contain;
+    .service-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    .icon-cyan   { background: rgba(0,212,255,0.12); }
-    .icon-purple { background: rgba(123,47,247,0.15); }
-    .icon-pink   { background: rgba(247,47,142,0.12); }
-    .icon-teal   { background: rgba(0,212,180,0.12); }
-    .icon-blue   { background: rgba(50,130,255,0.12); }
-    .icon-amber  { background: rgba(255,170,0,0.12); }
+    .service-body {
+      padding: 1.6rem 2rem 2rem;
+    }
 
     .service-card h3 {
       font-size: 1.05rem;
@@ -842,39 +838,51 @@
 
     <div class="services-grid">
       <div class="service-card reveal reveal-delay-1">
-        <div class="service-icon icon-cyan"><img src="images/icon-pc-mac.png" alt="PC &amp; Mac Maintenance" /></div>
-        <h3>PC &amp; Mac Maintenance</h3>
-        <p>Tune-ups, cleanup, and performance optimization to keep your machines running like new.</p>
+        <div class="service-img"><img src="images/icon-pc-mac.png" alt="PC &amp; Mac Maintenance" /></div>
+        <div class="service-body">
+          <h3>PC &amp; Mac Maintenance</h3>
+          <p>Tune-ups, cleanup, and performance optimization to keep your machines running like new.</p>
+        </div>
       </div>
 
       <div class="service-card reveal reveal-delay-2">
-        <div class="service-icon icon-purple"><img src="images/icon-network.png" alt="Network Support" /></div>
-        <h3>Network Support</h3>
-        <p>Setup, troubleshooting, and security hardening for home and business networks.</p>
+        <div class="service-img"><img src="images/icon-network.png" alt="Network Support" /></div>
+        <div class="service-body">
+          <h3>Network Support</h3>
+          <p>Setup, troubleshooting, and security hardening for home and business networks.</p>
+        </div>
       </div>
 
       <div class="service-card reveal reveal-delay-3">
-        <div class="service-icon icon-pink"><img src="images/icon-ai.png" alt="AI Integration" /></div>
-        <h3>AI Integration</h3>
-        <p>Helping businesses adopt the latest AI tools into their daily workflow to save time and scale operations.</p>
+        <div class="service-img"><img src="images/icon-ai.png" alt="AI Integration" /></div>
+        <div class="service-body">
+          <h3>AI Integration</h3>
+          <p>Helping businesses adopt the latest AI tools into their daily workflow to save time and scale operations.</p>
+        </div>
       </div>
 
       <div class="service-card reveal reveal-delay-1">
-        <div class="service-icon icon-teal"><img src="images/icon-training.png" alt="Software Training" /></div>
-        <h3>Software Training</h3>
-        <p>One-on-one or group sessions tailored to your team's specific software and workflow.</p>
+        <div class="service-img"><img src="images/icon-training.png" alt="Software Training" /></div>
+        <div class="service-body">
+          <h3>Software Training</h3>
+          <p>One-on-one or group sessions tailored to your team's specific software and workflow.</p>
+        </div>
       </div>
 
       <div class="service-card reveal reveal-delay-2">
-        <div class="service-icon icon-blue"><img src="images/icon-support.png" alt="Remote Customer Support" /></div>
-        <h3>Remote Customer Support</h3>
-        <p>On-demand tech help for individuals and teams — when you need it, from wherever you are.</p>
+        <div class="service-img"><img src="images/icon-support.png" alt="Remote Customer Support" /></div>
+        <div class="service-body">
+          <h3>Remote Customer Support</h3>
+          <p>On-demand tech help for individuals and teams — when you need it, from wherever you are.</p>
+        </div>
       </div>
 
       <div class="service-card reveal reveal-delay-3">
-        <div class="service-icon icon-amber"><img src="images/icon-security.png" alt="Cybersecurity Basics" /></div>
-        <h3>Cybersecurity Basics</h3>
-        <p>Practical data safety measures for small businesses concerned about protecting their information.</p>
+        <div class="service-img"><img src="images/icon-security.png" alt="Cybersecurity Basics" /></div>
+        <div class="service-body">
+          <h3>Cybersecurity Basics</h3>
+          <p>Practical data safety measures for small businesses concerned about protecting their information.</p>
+        </div>
       </div>
     </div>
   </section>
