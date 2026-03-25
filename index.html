@@ -748,6 +748,31 @@
     .reveal-delay-4 { transition-delay: 0.4s; }
     .reveal-delay-5 { transition-delay: 0.5s; }
 
+    /* ─── Hamburger ─────────────────────────────────── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 8px;
+      z-index: 1001;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
     /* ─── Mobile ────────────────────────────────────── */
     @media (max-width: 900px) {
       #about {
@@ -755,13 +780,38 @@
         gap: 3rem;
       }
 
+      #hero {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
       .hero-stats {
         position: static;
         margin-top: 3rem;
         justify-content: flex-start;
+        flex-wrap: wrap;
       }
 
-      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 70px;
+        left: 0; right: 0;
+        background: rgba(8, 13, 26, 0.97);
+        backdrop-filter: blur(16px);
+        padding: 1.5rem 5% 2rem;
+        gap: 1.5rem;
+        border-top: 1px solid rgba(0,212,255,0.12);
+        z-index: 999;
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-links a { font-size: 1.05rem; }
     }
 
     @media (max-width: 600px) {
@@ -782,7 +832,10 @@
     <a href="#hero" class="nav-logo">
       <img src="images/logo-banner.png" alt="Lindell &amp; Associates" />
     </a>
-    <ul class="nav-links">
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="#services">Services</a></li>
       <li><a href="#about-section">About</a></li>
       <li><a href="#customers">Who I Help</a></li>
@@ -1014,13 +1067,30 @@
   <!-- Footer -->
   <footer>
     <span class="footer-logo">
-      <img src="IMG_5491.png" alt="Lindell &amp; Associates" />
+      <img src="images/logo-banner.png" alt="Lindell &amp; Associates" />
     </span>
     <p>© 2026 Lindell and Associates. All rights reserved.</p>
     <span class="footer-location">📍 Yakima, WA</span>
   </footer>
 
   <script>
+    // ─── Hamburger Menu ────────────────────────────────
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    // Close menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+
     // ─── Scroll Progress Bar ───────────────────────────
     const bar = document.getElementById('progress-bar');
     window.addEventListener('scroll', () => {
