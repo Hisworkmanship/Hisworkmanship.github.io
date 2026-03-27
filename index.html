@@ -630,6 +630,24 @@
       margin-top: 0.15rem;
     }
 
+    .testimonial-placeholder {
+      border-style: dashed;
+      opacity: 0.45;
+    }
+
+    .testimonial-placeholder-text {
+      color: var(--gray);
+      font-style: italic;
+    }
+
+    .testimonial-placeholder-line {
+      height: 0.75rem;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.12);
+      width: 80%;
+      margin-top: 0.3rem;
+    }
+
     @media (max-width: 900px) {
       .testimonials-grid {
         grid-template-columns: 1fr;
@@ -1108,6 +1126,33 @@
         <div class="testimonial-author">
           <div class="testimonial-name">Robert Powers</div>
           <div class="testimonial-company">Berkshire Hathaway Home Services</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-4">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Mike Lindell has been my "go to" guy for any, and all internet issues for many years. He is remarkably knowledgeable and has always been able to resolve any IT problems I have encountered! I can recommend him without reservation.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-name">Bob Traner</div>
+          <div class="testimonial-company">Berkshire Hathaway Home Services</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card testimonial-placeholder reveal reveal-delay-5">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text testimonial-placeholder-text">More kind words coming soon…</p>
+        <div class="testimonial-author">
+          <div class="testimonial-name testimonial-placeholder-line"></div>
+          <div class="testimonial-company testimonial-placeholder-line" style="width:60%"></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card testimonial-placeholder reveal reveal-delay-5">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text testimonial-placeholder-text">More kind words coming soon…</p>
+        <div class="testimonial-author">
+          <div class="testimonial-name testimonial-placeholder-line"></div>
+          <div class="testimonial-company testimonial-placeholder-line" style="width:60%"></div>
         </div>
       </div>
     </div>
