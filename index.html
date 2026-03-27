@@ -573,7 +573,7 @@
 
     .testimonials-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       max-width: 1200px;
       margin: 0 auto;
@@ -628,6 +628,24 @@
       font-size: 0.82rem;
       color: var(--cyan);
       margin-top: 0.15rem;
+    }
+
+    .testimonial-placeholder {
+      border-style: dashed;
+      opacity: 0.45;
+    }
+
+    .testimonial-placeholder-text {
+      color: var(--gray);
+      font-style: italic;
+    }
+
+    .testimonial-placeholder-line {
+      height: 0.75rem;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.12);
+      width: 80%;
+      margin-top: 0.3rem;
     }
 
     @media (max-width: 900px) {
@@ -1117,6 +1135,24 @@
         <div class="testimonial-author">
           <div class="testimonial-name">Bob Traner</div>
           <div class="testimonial-company">Berkshire Hathaway Home Services</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card testimonial-placeholder reveal reveal-delay-5">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text testimonial-placeholder-text">More kind words coming soon…</p>
+        <div class="testimonial-author">
+          <div class="testimonial-name testimonial-placeholder-line"></div>
+          <div class="testimonial-company testimonial-placeholder-line" style="width:60%"></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card testimonial-placeholder reveal reveal-delay-5">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text testimonial-placeholder-text">More kind words coming soon…</p>
+        <div class="testimonial-author">
+          <div class="testimonial-name testimonial-placeholder-line"></div>
+          <div class="testimonial-company testimonial-placeholder-line" style="width:60%"></div>
         </div>
       </div>
     </div>
