@@ -8,7 +8,7 @@
   <meta property="og:title" content="Lindell & Associates | Remote IT Consulting — Yakima, WA" />
   <meta property="og:description" content="Over 45 years of IT experience. Remote support for small businesses and individuals — no waiting, no hassle." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="images/logo-banner.png" />
+  <meta property="og:image" content="https://hisworkmanship.github.io/images/logo-banner.png" />
   <link rel="icon" type="image/png" href="images/logo-only.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -567,8 +567,16 @@
 
     /* ─── Testimonials ──────────────────────────────── */
     #testimonials {
-      padding: 100px 5%;
       background: var(--navy2);
+      position: relative;
+    }
+
+    #testimonials::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,212,255,0.3), transparent);
     }
 
     .testimonials-header {
@@ -900,7 +908,7 @@
         display: none;
         flex-direction: column;
         position: fixed;
-        top: 70px;
+        top: 105px;
         left: 0; right: 0;
         background: rgba(8, 13, 26, 0.97);
         backdrop-filter: blur(16px);
@@ -977,8 +985,8 @@
         <div class="stat-label">Remote</div>
       </div>
       <div class="stat">
-        <div class="stat-number">Both</div>
-        <div class="stat-label">PC &amp; Mac</div>
+        <div class="stat-number">45+</div>
+        <div class="stat-label">Years Experience</div>
       </div>
     </div>
   </section>
