@@ -101,14 +101,14 @@
 
     .nav-links a:hover { color: var(--cyan); }
 
-    .nav-cta {
+    .nav-links .nav-cta {
       padding: 15px 36px;
       background: var(--grad);
-      color: var(--white) !important;
+      color: var(--white);
       border-radius: 50px;
-      font-weight: 600 !important;
-      font-size: 1.275rem !important;
-      transition: opacity var(--transition), transform var(--transition) !important;
+      font-weight: 600;
+      font-size: 1.275rem;
+      transition: opacity var(--transition), transform var(--transition);
     }
 
     .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
@@ -410,7 +410,6 @@
       gap: 80px;
       align-items: center;
     }
-
 
     .about-visual {
       position: relative;
@@ -1004,7 +1003,7 @@
 
     <div class="services-grid">
       <div class="service-card reveal reveal-delay-1">
-        <div class="service-img"><img src="images/icon-pc-mac.png" alt="PC &amp; Mac Maintenance" /></div>
+        <div class="service-img"><img src="images/icon-pc-mac.png" alt="PC &amp; Mac Maintenance" loading="lazy" /></div>
         <div class="service-body">
           <h3>PC &amp; Mac Maintenance</h3>
           <p>Tune-ups, cleanup, and performance optimization to keep your machines running like new.</p>
@@ -1012,7 +1011,7 @@
       </div>
 
       <div class="service-card reveal reveal-delay-2">
-        <div class="service-img"><img src="images/icon-network.png" alt="Network Support" /></div>
+        <div class="service-img"><img src="images/icon-network.png" alt="Network Support" loading="lazy" /></div>
         <div class="service-body">
           <h3>Network Support</h3>
           <p>Setup, troubleshooting, and security hardening for home and business networks.</p>
@@ -1020,7 +1019,7 @@
       </div>
 
       <div class="service-card reveal reveal-delay-3">
-        <div class="service-img"><img src="images/icon-ai.png" alt="AI Integration" /></div>
+        <div class="service-img"><img src="images/icon-ai.png" alt="AI Integration" loading="lazy" /></div>
         <div class="service-body">
           <h3>AI Integration</h3>
           <p>Helping businesses adopt the latest AI tools into their daily workflow to save time and scale operations.</p>
@@ -1028,7 +1027,7 @@
       </div>
 
       <div class="service-card reveal reveal-delay-1">
-        <div class="service-img"><img src="images/icon-training.png" alt="Software Training" /></div>
+        <div class="service-img"><img src="images/icon-training.png" alt="Software Training" loading="lazy" /></div>
         <div class="service-body">
           <h3>Software Training</h3>
           <p>One-on-one or group sessions tailored to your team's specific software and workflow.</p>
@@ -1036,7 +1035,7 @@
       </div>
 
       <div class="service-card reveal reveal-delay-2">
-        <div class="service-img"><img src="images/icon-support.png" alt="Remote Customer Support" /></div>
+        <div class="service-img"><img src="images/icon-support.png" alt="Remote Customer Support" loading="lazy" /></div>
         <div class="service-body">
           <h3>Remote Customer Support</h3>
           <p>On-demand tech help for individuals and teams — when you need it, from wherever you are.</p>
@@ -1044,7 +1043,7 @@
       </div>
 
       <div class="service-card reveal reveal-delay-3">
-        <div class="service-img"><img src="images/icon-security.png" alt="Cybersecurity Basics" /></div>
+        <div class="service-img"><img src="images/icon-security.png" alt="Cybersecurity Basics" loading="lazy" /></div>
         <div class="service-body">
           <h3>Cybersecurity Basics</h3>
           <p>Practical data safety measures for small businesses concerned about protecting their information.</p>
@@ -1257,8 +1256,9 @@
     const navLinks = document.getElementById('navLinks');
 
     navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('open');
+      const isOpen = navToggle.classList.toggle('open');
       navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
     });
 
     // Close menu when a link is clicked
@@ -1266,6 +1266,7 @@
       link.addEventListener('click', () => {
         navToggle.classList.remove('open');
         navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-label', 'Open menu');
       });
     });
 
