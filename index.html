@@ -8,6 +8,7 @@
   <meta property="og:title" content="Lindell & Associates | Remote IT Consulting — Yakima, WA" />
   <meta property="og:description" content="Over 45 years of IT experience. Remote support for small businesses and individuals — no waiting, no hassle." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hisworkmanship.github.io/" />
   <meta property="og:image" content="https://hisworkmanship.github.io/images/logo-banner.png" />
   <link rel="icon" type="image/png" href="images/logo-only.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -26,7 +27,6 @@
       --gray:    #a0aec0;
       --light:   #e2e8f0;
       --grad:    linear-gradient(135deg, #00d4ff, #7b2ff7);
-      --grad2:   linear-gradient(135deg, #7b2ff7, #f72f8e);
       --radius:  14px;
       --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -411,7 +411,6 @@
       align-items: center;
     }
 
-    #about-section { padding: 100px 5%; }
 
     .about-visual {
       position: relative;
@@ -772,6 +771,17 @@
       text-align: center;
       margin-top: 0.5rem;
       opacity: 0.7;
+    }
+
+    .form-error {
+      display: none;
+      font-size: 0.88rem;
+      color: #f72f8e;
+      background: rgba(247,47,142,0.08);
+      border: 1px solid rgba(247,47,142,0.25);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      text-align: center;
     }
 
     /* Success state */
@@ -1218,6 +1228,7 @@
         </div>
 
         <button type="submit" class="form-submit">&#9993; &nbsp;Send Message</button>
+        <p class="form-error" id="formError">Something went wrong — please try again or email directly.</p>
         <p class="form-note">Your information is never shared or sold.</p>
       </form>
 
@@ -1236,7 +1247,7 @@
     <span class="footer-logo">
       <img src="images/logo-banner.png" alt="Lindell &amp; Associates" />
     </span>
-    <p>© 2026 Lindell and Associates. All rights reserved.</p>
+    <p>© 2026 Lindell &amp; Associates. All rights reserved.</p>
     <span class="footer-location">📍 Yakima, WA</span>
   </footer>
 
@@ -1291,7 +1302,7 @@
         const target = document.querySelector(anchor.getAttribute('href'));
         if (!target) return;
         e.preventDefault();
-        const offset = 80;
+        const offset = 115;
         window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
       });
     });
@@ -1299,6 +1310,7 @@
     // ─── Contact Form (Formspree) ──────────────────────
     const contactForm = document.getElementById('contactForm');
     const formSuccess = document.getElementById('formSuccess');
+    const formError = document.getElementById('formError');
 
     if (contactForm) {
       contactForm.addEventListener('submit', async (e) => {
@@ -1306,6 +1318,7 @@
         const btn = contactForm.querySelector('.form-submit');
         btn.textContent = 'Sending…';
         btn.disabled = true;
+        formError.style.display = 'none';
 
         const response = await fetch(contactForm.action, {
           method: 'POST',
@@ -1319,7 +1332,7 @@
         } else {
           btn.textContent = 'Send Message';
           btn.disabled = false;
-          alert('Something went wrong — please try again.');
+          formError.style.display = 'block';
         }
       });
     }
