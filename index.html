@@ -559,6 +559,83 @@
       flex-shrink: 0;
     }
 
+    /* ─── Testimonials ──────────────────────────────── */
+    #testimonials {
+      padding: 100px 5%;
+      background: var(--navy2);
+    }
+
+    .testimonials-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4rem;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: var(--navy3);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(0,212,255,0.3);
+      transform: translateY(-4px);
+    }
+
+    .testimonial-quote {
+      font-size: 2.5rem;
+      line-height: 1;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: var(--light);
+      line-height: 1.75;
+      flex: 1;
+    }
+
+    .testimonial-author {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 1rem;
+    }
+
+    .testimonial-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .testimonial-company {
+      font-size: 0.82rem;
+      color: var(--cyan);
+      margin-top: 0.15rem;
+    }
+
+    @media (max-width: 900px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ─── Contact Section ───────────────────────────── */
     #contact {
       position: relative;
@@ -839,6 +916,7 @@
       <li><a href="#services">Services</a></li>
       <li><a href="#about-section">About</a></li>
       <li><a href="#customers">Who I Help</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#contact" class="nav-cta">Get Help Now</a></li>
     </ul>
   </nav>
@@ -995,6 +1073,43 @@
       <div class="customer-chip reveal reveal-delay-4"><span class="dot" style="background:#7b2ff7"></span> Warehouses</div>
       <div class="customer-chip reveal reveal-delay-5"><span class="dot" style="background:#f72f8e"></span> Consultants</div>
       <div class="customer-chip reveal reveal-delay-5"><span class="dot" style="background:#00d4b4"></span> Remote Staffing</div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <div class="testimonials-header reveal">
+      <span class="section-label">Client Testimonials</span>
+      <h2 class="section-title">What People <span>Are Saying</span></h2>
+      <p class="section-sub">Real feedback from clients who've trusted Mike with their tech for years.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Mike has been helping me with my computer upgrades and repairs for over 10 years now. He is a lifesaver! He can remote into my computer to fix any glitches or problems that I have, saving me time and money. I don't know what I would do without Mike! I highly recommend having him in your corner.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-name">Lanette Headley</div>
+          <div class="testimonial-company">Keller Williams</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Mike Lindell was recommended to me by John Neidhart, a real estate broker at Almon Realty in Yakima, WA. John explained that Mike regularly worked with all the brokers in the office, providing comprehensive IT support and solutions for their needs. On John's advice, I reached out to Mike, and he has been my trusted IT consultant for over 15 years. Mike's problem-solving skills and unmatched computer expertise have been invaluable to me.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-name">Ike Purdy</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-3">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Skilled tech guy. Pleasant demeanor. Really easy to work with him on computer issues!</p>
+        <div class="testimonial-author">
+          <div class="testimonial-name">Robert Powers</div>
+          <div class="testimonial-company">Berkshire Hathaway Home Services</div>
+        </div>
+      </div>
     </div>
   </section>
 
