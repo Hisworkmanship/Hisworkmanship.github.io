@@ -43,14 +43,21 @@
 
     /* Competencies */
     .competencies ul {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3px 24px;
       list-style: none;
       padding: 0;
+      margin: 0;
+      overflow: hidden;
+    }
+    .competencies ul li {
+      font-size: 10pt;
+      width: 50%;
+      float: left;
+      margin-bottom: 3px;
+      padding-right: 24px;
+      box-sizing: border-box;
     }
     .competencies ul li::before { content: "▸  "; color: #555; font-size: 9pt; }
-    .competencies ul li { font-size: 10pt; }
+    .competencies-clear { clear: both; }
 
     /* Experience */
     .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
@@ -128,6 +135,7 @@
       <li>Complex System Installation Consulting</li>
       <li>Cross-Platform Support (Windows &amp; macOS)</li>
     </ul>
+    <div class="competencies-clear"></div>
   </div>
 
   <!-- Experience -->
