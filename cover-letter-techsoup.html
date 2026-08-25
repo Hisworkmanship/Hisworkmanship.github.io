@@ -37,20 +37,21 @@
     /* ─── Letterhead ───────────────────────────────── */
     .letterhead {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 24px;
-      padding-bottom: 18px;
+      padding-bottom: 10px;
       border-bottom: 2px solid var(--ink);
       margin-bottom: 28px;
     }
 
     .letterhead-logo {
       flex-shrink: 0;
+      line-height: 0;
     }
 
     .letterhead-logo img {
-      height: 200px;
+      height: 180px;
       width: auto;
       object-fit: contain;
       display: block;
@@ -62,6 +63,7 @@
       font-size: 9.5pt;
       color: var(--muted);
       line-height: 1.45;
+      padding-top: 8px;
     }
 
     .letterhead-info .business {
@@ -180,7 +182,7 @@
     <!-- Letterhead -->
     <header class="letterhead">
       <div class="letterhead-logo">
-        <img src="images/logo-plus-name.png" alt="Lindell and Associates" />
+        <img src="images/logo-only.png" alt="Lindell and Associates" />
       </div>
       <div class="letterhead-info">
         <div class="business">Lindell and Associates</div>
