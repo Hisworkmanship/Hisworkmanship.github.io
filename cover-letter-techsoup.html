@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mike Lindell — Cover Letter · TechSoup Support Engineer</title>
+  <link rel="icon" type="image/png" href="images/logo-only.png" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:      #1a1a1a;
+      --ink-soft: #333;
+      --muted:    #555;
+      --rule:     #d9d9d9;
+      --accent:   #0b3d91;
+    }
+
+    html, body { background: #f4f4f4; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 11pt;
+      color: var(--ink);
+      line-height: 1.6;
+      padding: 32px 16px;
+    }
+
+    .page {
+      background: #fff;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 56px 64px 48px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+
+    /* ─── Letterhead ───────────────────────────────── */
+    .letterhead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 18px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 28px;
+    }
+
+    .letterhead-logo img {
+      height: 68px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .letterhead-info {
+      text-align: right;
+      font-family: 'Arial', 'Helvetica', sans-serif;
+      font-size: 9.5pt;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .letterhead-info .business {
+      font-weight: 700;
+      color: var(--ink);
+      font-size: 11pt;
+      letter-spacing: 0.02em;
+      margin-bottom: 2px;
+    }
+
+    /* ─── Meta block ───────────────────────────────── */
+    .meta {
+      margin-bottom: 22px;
+      font-size: 10.5pt;
+      color: var(--ink-soft);
+    }
+
+    .meta .date { margin-bottom: 18px; }
+
+    .meta .recipient { line-height: 1.45; }
+
+    .meta .recipient strong { color: var(--ink); }
+
+    /* ─── Body ─────────────────────────────────────── */
+    .subject {
+      font-family: 'Arial', 'Helvetica', sans-serif;
+      font-size: 10.5pt;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+
+    p { margin-bottom: 14px; text-align: justify; hyphens: auto; }
+
+    p.greeting { margin-bottom: 18px; }
+
+    p strong { color: var(--ink); }
+
+    .highlight-list {
+      list-style: none;
+      margin: 0 0 16px 0;
+      padding: 0;
+    }
+
+    .highlight-list li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 8px;
+      font-size: 10.5pt;
+    }
+
+    .highlight-list li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .highlight-list li strong { color: var(--ink); }
+
+    /* ─── Sign-off ─────────────────────────────────── */
+    .signoff { margin-top: 28px; }
+
+    .signoff .name {
+      font-family: 'Arial', 'Helvetica', sans-serif;
+      font-weight: 700;
+      font-size: 11pt;
+      color: var(--ink);
+      margin-top: 22px;
+    }
+
+    .signoff .title {
+      font-size: 10pt;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 2px;
+    }
+
+    /* ─── Footer ───────────────────────────────────── */
+    .footer {
+      margin-top: 36px;
+      padding-top: 14px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Arial', 'Helvetica', sans-serif;
+      font-size: 8.5pt;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Print ────────────────────────────────────── */
+    @media print {
+      html, body { background: #fff; }
+      body { padding: 0; font-size: 11pt; }
+      .page { box-shadow: none; margin: 0; max-width: none; padding: 0.75in 0.85in; }
+      @page { size: Letter; margin: 0.5in; }
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 16px 8px; }
+      .page { padding: 32px 24px; }
+      .letterhead { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .letterhead-info { text-align: left; }
+      p { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- Letterhead -->
+    <header class="letterhead">
+      <div class="letterhead-logo">
+        <img src="images/logo-plus-name.png" alt="Lindell and Associates" />
+      </div>
+      <div class="letterhead-info">
+        <div class="business">Lindell and Associates</div>
+        <div>Remote IT Consulting</div>
+        <div>Yakima Valley, Washington</div>
+        <div>mikelindell.info · hisworkmanship.yak@gmail.com</div>
+      </div>
+    </header>
+
+    <!-- Date + Recipient -->
+    <section class="meta">
+      <div class="date">August 25, 2026</div>
+      <div class="recipient">
+        <strong>Hiring Team</strong><br />
+        TechSoup Global<br />
+        Re: Support Engineer (Global Remote)
+      </div>
+    </section>
+
+    <!-- Subject -->
+    <div class="subject">Application for Support Engineer</div>
+
+    <!-- Body -->
+    <p class="greeting">Dear TechSoup Hiring Team,</p>
+
+    <p>
+      I am writing to apply for the <strong>Support Engineer</strong> position with TechSoup. After more than
+      forty-five years running my own remote IT practice, <strong>Lindell and Associates</strong>, I've spent every
+      week doing the exact work this role describes: owning the end-to-end support experience for a diverse
+      client portfolio, resolving escalations no one else has solved, and building the documentation and
+      workflows that keep small organizations running. TechSoup's mission — equipping the nonprofit sector
+      with the technology it needs to serve its communities — is the kind of work I would be proud to pour
+      the next chapter of my career into.
+    </p>
+
+    <p>
+      For decades I have essentially operated as a one-person MSP for real estate firms, law offices,
+      healthcare providers, property management companies, and retail businesses across the Yakima Valley
+      and beyond. That means I have carried, day in and day out, the same responsibilities the Support
+      Engineer role asks for: <strong>triaging and closing tickets, owning Tier 2/3 escalations,
+      coordinating with vendors, documenting SOPs, and coaching non-technical users</strong>. My clients
+      have stayed with me for ten, fifteen, sometimes twenty years — a testament to the reliability,
+      responsiveness, and calm-under-pressure that I believe are the true differentiators in senior IT
+      support.
+    </p>
+
+    <p>How my background maps to what TechSoup needs:</p>
+
+    <ul class="highlight-list">
+      <li><strong>Cross-platform mastery.</strong> I've supported Windows and macOS side by side for the
+        entire span of my career — enrollment, imaging, configuration, patch management, and everyday
+        troubleshooting across mixed fleets.</li>
+      <li><strong>Microsoft 365 &amp; identity.</strong> Long-standing hands-on work with Exchange, Outlook,
+        Teams, SharePoint, and OneDrive; comfortable in the Entra ID / Azure AD stack for account,
+        mailbox, and access issues, and ready to deepen scripting with PowerShell where it accelerates
+        the queue.</li>
+      <li><strong>Endpoint, network &amp; security.</strong> Designed, hardened, and supported LANs, VPNs,
+        firewalls, endpoint protection, DNS/web filtering, and MFA/conditional-access flows for
+        organizations that could not afford to be down.</li>
+      <li><strong>MSP-style queue ownership.</strong> Managing my own portfolio has taught me to think in
+        SLAs — spotting ticket trends, retiring root causes with SOPs or automation, and keeping
+        stakeholders informed at every step.</li>
+      <li><strong>Documentation &amp; enablement.</strong> Runbooks, how-to guides, and one-on-one and
+        group training have been core to my delivery for decades; I reduce ticket volume by making
+        clients self-sufficient wherever possible.</li>
+      <li><strong>Strategic transitions.</strong> I've led migrations across email platforms, storage
+        providers, and productivity suites — the kind of Box→OneDrive/SharePoint or DocuSign→Adobe
+        transitions your team is running today — with an emphasis on minimal disruption and reversible
+        change.</li>
+      <li><strong>Emerging tools.</strong> I actively integrate AI-powered productivity platforms into
+        client workflows and would bring that momentum to Power Automate, Copilot Studio, and Purview
+        adoption at TechSoup.</li>
+    </ul>
+
+    <p>
+      Beyond the technical fit, TechSoup's values resonate deeply with how I've run my practice.
+      <strong>Promote Trust</strong> is the quiet foundation of every fifteen-year client relationship
+      I've kept. <strong>Be Resourceful</strong> is the daily posture of a solo consultant. And
+      <strong>Be Relevant</strong> is why I keep learning — the industry that hired me in the 1980s is not
+      the industry I serve today, and I've made sure my skills evolved with every wave. I am also entirely
+      comfortable with distributed, asynchronous collaboration, structured written communication, and the
+      occasional maintenance window or on-call rotation; my entire delivery model is already fully remote.
+    </p>
+
+    <p>
+      I would welcome a conversation about how my depth of experience, MSP-style ownership, and
+      customer-first approach could strengthen the Support Engineer function at TechSoup. Thank you for
+      your time and consideration — I look forward to hearing from you.
+    </p>
+
+    <!-- Sign-off -->
+    <div class="signoff">
+      <p>Sincerely,</p>
+      <div class="name">Mike Lindell</div>
+      <div class="title">Owner &amp; Principal IT Consultant, Lindell and Associates</div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>LINDELL AND ASSOCIATES</span>
+      <span>YAKIMA VALLEY, WA · REMOTE IT CONSULTING</span>
+    </footer>
+
+  </div>
+
+</body>
+</html>
